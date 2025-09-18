@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+	- name: Project Intake / Requirements
+		url: ../docs/intake-form.md
+		about: Review or update initial project requirements before broad scope changes.
+	- name: Deployment Process
+		url: ../docs/deployment-process.md
+		about: See deployment steps and release checklists.
+	- name: Security Report (Private)
+		url: ../../SECURITY.md
+		about: Do NOT open a public issue. Review the security policy for how to report vulnerabilities privately.

@@ -1,0 +1,37 @@
+# Dependabot configuration
+# Docs: https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  # Keep GitHub Actions up to date (weekly) while allowing faster security-related direct updates.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "04:00"
+      timezone: "UTC"
+    labels:
+      - dependencies
+      - github-actions
+    open-pull-requests-limit: 5
+    allow:
+      - dependency-type: "direct"
+
+  # NPM / Node (add when package.json introduced)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "04:30"
+      timezone: "UTC"
+    labels:
+      - dependencies
+      - javascript
+    # Enable once a package.json exists; currently tolerated as no-op.
+    ignore: []
+
+  # (Optional) Add additional ecosystems later (docker, pip, gradle, etc.)
+
+  # (Removed duplicate github-actions block; security allowance handled above.)
