@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [ "development", "main", "research-phase" ]
+  pull_request:
+    branches: [ "development", "main", "research-phase" ]
+  workflow_dispatch:
+
+jobs:
+  meta-validation:
+    name: Metadata / Structure Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify required meta files exist
+        run: |
+          files=( README.md LICENSE SECURITY.md CODE_OF_CONDUCT.md CONTRIBUTING.md )
+          missing=0
+          for f in "${files[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "Missing required file: $f" >&2
+              missing=1
+            else
+              echo "Found $f"
+            fi
+          done
+          if [ $missing -ne 0 ]; then
+            exit 1
+          fi
+
+      - name: Check issue templates presence
+        run: |
+          if [ ! -d .github/ISSUE_TEMPLATE ]; then
+            echo "ISSUE_TEMPLATE directory missing" >&2; exit 1; fi
+          ls -1 .github/ISSUE_TEMPLATE
+
+      - name: Validate YAML syntax (Dependabot + templates)
+        uses: karancode/yamllint-github-action@v3.1.0
+        with:
+          yamllint_version: 1.35.1
+          config_file: .yamllint.yml
+        continue-on-error: true # Non-blocking until stricter config added
+
+      - name: Detect package manager (optional)
+        id: pkg
+        run: |
+          if [ -f package.json ]; then echo "found=true" >> $GITHUB_OUTPUT; else echo "found=false" >> $GITHUB_OUTPUT; fi
+
+      - name: Node setup (conditional)
+        if: steps.pkg.outputs.found == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install (conditional)
+        if: steps.pkg.outputs.found == 'true'
+        run: npm ci --ignore-scripts
+
+      - name: Placeholder test phase
+        run: |
+          echo "No test suite defined yet. Add tests in future iterations." 
+
+  spellcheck-docs:
+    name: Docs Spelling (Basic)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run simple typo scan (grep heuristic)
+        run: |
+          grep -RIn "teh " || true
+          echo "(Add a proper spell checker later if desired)"

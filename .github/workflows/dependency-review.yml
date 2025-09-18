@@ -1,0 +1,25 @@
+name: Dependency Review
+
+on:
+  pull_request:
+    branches: [ "development", "main", "research-phase" ]
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: critical
+          allow-licenses: '*' # Adjust once licensing policies are defined
+          comment-summary-in-pr: true
+          deny-ghsa-advisories: ''
+          deny-cves: ''
+          # This will be a no-op until a supported manifest (e.g. package.json) is added.
