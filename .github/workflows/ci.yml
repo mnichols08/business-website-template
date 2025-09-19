@@ -38,10 +38,10 @@ jobs:
           ls -1 .github/ISSUE_TEMPLATE
 
       - name: Validate YAML syntax (Dependabot + templates)
-        uses: karancode/yamllint-github-action@v3.1.0
-        with:
-          yamllint_version: 1.35.1
-          config_file: .yamllint.yml
+        run: |
+          pip install --upgrade pip
+          pip install yamllint==1.35.1
+          yamllint -c .yamllint.yml .
         continue-on-error: true # Non-blocking until stricter config added
 
       - name: Detect package manager (optional)
