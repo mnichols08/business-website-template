@@ -10,14 +10,22 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - (placeholder)
 
 ### Changed
+- (placeholder)
+
+### Fixed
+- (placeholder)
+
+### Removed
+- (placeholder)
+
+## [0.0.3] - 2025-09-19
+
+### Changed
 - Corrected compare links in the reference section to align with 0.0.2
 - Clarified release process instructions to include updating reference links
 
 ### Fixed
 - Grammar in introduction ("to documented" -> "documented")
-
-### Removed
-- (placeholder)
 
 ## [0.0.2] - 2025-09-18
 
@@ -52,6 +60,7 @@ Release process:
 3. Commit the changelog and code changes
 4. Tag the commit with the new version (no `v` prefix) and push tags
 
-[Unreleased]: https://github.com/mnichols08/business-website-template/compare/0.0.2...HEAD
+[Unreleased]: https://github.com/mnichols08/business-website-template/compare/0.0.3...HEAD
+[0.0.3]: https://github.com/mnichols08/business-website-template/compare/0.0.2...0.0.3
 [0.0.2]: https://github.com/mnichols08/business-website-template/compare/0.0.1...0.0.2
 [0.0.1]: https://github.com/mnichols08/business-website-template/releases/tag/0.0.1
