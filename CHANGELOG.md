@@ -10,7 +10,7 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - (placeholder)
 
 ### Changed
-- (placeholder)
+- Updated Dependency Review workflow/configuration for pull requests to enforce stricter checks and provide clearer reporting
 
 ### Fixed
 - (placeholder)
