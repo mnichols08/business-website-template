@@ -1,11 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-	- name: Project Intake / Requirements
-		url: ../docs/intake-form.md
-		about: Review or update initial project requirements before broad scope changes.
-	- name: Deployment Process
-		url: ../docs/deployment-process.md
-		about: See deployment steps and release checklists.
-	- name: Security Report (Private)
-		url: ../../SECURITY.md
-		about: Do NOT open a public issue. Review the security policy for how to report vulnerabilities privately.
+  - name: Project Intake / Requirements
+    url: https://github.com/mnichols08/business-website-template/blob/HEAD/docs/intake-form.md
+    about: Review or update initial project requirements before broad scope changes.
+  - name: Deployment Process
+    url: https://github.com/mnichols08/business-website-template/blob/HEAD/docs/deployment-process.md
+    about: See deployment steps and release checklists.
+  - name: Security Report (Private)
+    url: https://github.com/mnichols08/business-website-template/blob/HEAD/SECURITY.md
+    about: Do NOT open a public issue. Review the security policy for how to report vulnerabilities privately.
