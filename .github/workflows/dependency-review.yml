@@ -17,9 +17,7 @@ jobs:
       - name: Dependency Review
         uses: actions/dependency-review-action@v4
         with:
-          fail-on-severity: critical
-          allow-licenses: '*' # Adjust once licensing policies are defined
+          vulnerability-check: true
+          license-check: false
+          fail-on-severity: moderate
           comment-summary-in-pr: true
-          deny-ghsa-advisories: ''
-          deny-cves: ''
-          # This will be a no-op until a supported manifest (e.g. package.json) is added.
