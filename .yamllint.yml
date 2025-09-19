@@ -1,0 +1,50 @@
+# Baseline yamllint configuration for this template
+# Docs: https://yamllint.readthedocs.io/en/stable/configuration.html
+
+extends: default
+
+rules:
+  # Keep line length reasonable but non-blocking.
+  line-length:
+    max: 140
+    level: warning
+
+  # Allow omission of '---' at top of small YAML files.
+  document-start: disable
+
+  # Indentation currently varies (some tabs in .github/ISSUE_TEMPLATE/config.yml).
+  # Disable strict indentation for now; standardize to 2 spaces later.
+  indentation: disable
+
+  # Accept up to two consecutive blank lines.
+  empty-lines:
+    max: 2
+    level: warning
+
+  # Trailing spaces are usually unintentional; warn only.
+  trailing-spaces:
+    level: warning
+
+  # Enforce that values like 'yes', 'no', 'on', 'off' aren't used implicitly.
+  truthy:
+    level: error
+
+  # Disable comments indentation rule until indentation standardized.
+  comments-indentation: disable
+
+  # Duplicate keys should fail.
+  key-duplicates: enable
+
+  # Newline style (LF) for cross-platform consistency.
+  new-lines:
+    type: unix
+
+ignore: |
+  node_modules/
+  dist/
+  build/
+  .git/
+
+# Future improvements:
+# - Convert all YAML to 2-space indentation and enable the indentation rule.
+# - Add per-directory overrides if language-specific tooling is added.

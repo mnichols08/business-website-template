@@ -1,0 +1,13 @@
+# CODEOWNERS defines individuals or teams that are responsible for code in this repository.
+# Docs: https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global default owner(s)
+* @mnichols08
+
+# Example patterns (uncomment / adjust as project grows):
+# /docs/ @mnichols08
+# /infrastructure/ @team-infra
+# *.md @mnichols08
+
+# Security policy ownership
+SECURITY.md @mnichols08
